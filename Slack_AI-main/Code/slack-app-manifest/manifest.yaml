@@ -1,0 +1,101 @@
+display_information:
+  name: Slackify
+  description: Introducing \'Slackify\', the cutting-edge app that mirrors the prowess of GPT, providing unparalleled customer query responses.
+  background_color: "#000000"
+  long_description: "*Slackify* is a game-changing application that revolutionizes the interaction within Slack using AI. *Harnessing the power of Generative AI*, it responds to customer queries with unmatched precision and speed, just like GPT.  Just say goodbye to mundane, time-consuming tasks, and hello to a seamless, efficient support experience. \r
+
+    \r
+
+    Slackify seamlessly integrates into your Slack workspace, enhancing communication and engagement. With its ability to comprehend, analyze, and respond intelligently to inquiries, it not only saves valuable time but also ensures customer satisfaction. Empower your team with the future of customer support. Elevate your customer interactions with Slackify, where excellence meets efficiency. Be it Message Shortcuts to Summarize a Text, knowing the customer sentiments or One-on-one or DirectMessage replies using ChatGPT, this app just rocks. \r
+
+    \r
+
+    *App Built with Pride by : DXCSlackesters Team lead by Sombir Sheoran<sombir.sheoran2@dxc.com>*"
+features:
+  app_home:
+    home_tab_enabled: true
+    messages_tab_enabled: true
+    messages_tab_read_only_enabled: false
+  bot_user:
+    display_name: SlackifyAIBot
+    always_online: true
+  shortcuts:
+    - name: Sentiment Analysis
+      type: message
+      callback_id: sentiment_analysis_msg_sc
+      description: Analysis the sentiments of the Slack message and gives Positive, Negative, Neutral response
+    - name: "Summarize Text: Global"
+      type: global
+      callback_id: summarize_global_sc
+      description: This global shortcut helps 'Summarize' the large content into small summary and useful text
+    - name: Summarize
+      type: message
+      callback_id: summarize_msg_sc
+      description: " This message shortcut helps 'Summarize' the large content into small summary and useful text"
+    - name: Translate Text AI
+      type: message
+      callback_id: translate_text_ai_msg_sc
+      description: Helps Translate the main text to a target {selected} language
+  slash_commands:
+    - command: /askmeanythingai
+      description: Listens to your inputs and responds using ChatGPT APIs
+      usage_hint: /AskMeAnythingAI [Input Text]
+      should_escape: false
+    - command: /texttranslationai
+      description: Pass a long text and it translates the text for you
+      usage_hint: /TextTranslationAI "Long Text for Translation"
+      should_escape: false
+    - command: /summarizeachannel
+      description: Reads all messages in Channel and summarises
+      usage_hint: /SummarizeAChannel [No Argument Needed]
+      should_escape: false
+    - command: /querysalesforcerecords
+      description: Queries the Salesforce data based on the [Object] and [Object Id] passed]
+      usage_hint: "[Salesforce Object Name] [Salesforce Object Id]"
+      should_escape: false
+    - command: /searchsalesforcerecords
+      description: Searches Salesforce objects with the search string
+      usage_hint: "[Salesforce Search String]"
+      should_escape: false
+oauth_config:
+  scopes:
+    user:
+      - channels:history
+      - im:history
+      - reactions:read
+      - groups:history
+    bot:
+      - app_mentions:read
+      - channels:history
+      - channels:read
+      - chat:write
+      - commands
+      - groups:history
+      - im:history
+      - im:write
+      - links:read
+      - mpim:history
+      - reactions:read
+      - reactions:write
+      - mpim:read
+      - mpim:write
+      - users:read
+settings:
+  event_subscriptions:
+    user_events:
+      - message.app_home
+      - message.channels
+      - message.im
+      - reaction_added
+    bot_events:
+      - app_home_opened
+      - app_mention
+      - message.im
+      - message.mpim
+      - reaction_added
+      - team_join
+  interactivity:
+    is_enabled: true
+  org_deploy_enabled: false
+  socket_mode_enabled: true
+  token_rotation_enabled: false
