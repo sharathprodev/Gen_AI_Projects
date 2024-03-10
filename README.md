@@ -1,6 +1,6 @@
 # Gen_AI_Projects
 
-# Slack_AI
+** Slack_AI ** 
 
 The objective is to develop a custom Slack app that integrates the OpenAI API to provide a range of powerful features for enhancing communication and productivity within Slack workspaces using Gen AI.
 Some of the use-cases are,
